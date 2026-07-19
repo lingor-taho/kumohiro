@@ -1,14 +1,14 @@
 @echo off
 setlocal
-title KOWA TRADING Website
+title KUMOHIRO Website
 cd /d "%~dp0"
 
 set "PORT=14100"
 set "HOST=0.0.0.0"
-set "DEPENDENCY_MARKER=node_modules\.kowa-static-v1"
+set "DEPENDENCY_MARKER=node_modules\.kumohiro-static-v1"
 
 echo ========================================
-echo KOWA TRADING Static Website Launcher
+echo KUMOHIRO Static Website Launcher
 echo ========================================
 echo.
 

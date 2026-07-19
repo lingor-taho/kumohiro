@@ -7,7 +7,7 @@ const root = new URL("../", import.meta.url);
 test("build emits the static application shell and assets", async () => {
   const html = await readFile(new URL("dist/index.html", root), "utf8");
   assert.match(html, /<div id="root"><\/div>/);
-  assert.match(html, /KOWA TRADING/);
+  assert.match(html, /KUMOHIRO/);
   assert.match(html, /\/assets\/[^\"]+\.js/);
   assert.match(html, /\/assets\/[^\"]+\.css/);
 });

@@ -89,6 +89,6 @@ server.on("error", (error) => {
 });
 
 server.listen(port, host, () => {
-  console.log(`KOWA TRADING production website is running at http://localhost:${port}/`);
+  console.log(`KUMOHIRO production website is running at http://localhost:${port}/`);
   console.log("Keep this window open. Press Ctrl+C to stop the website.");
 });

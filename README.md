@@ -1,4 +1,4 @@
-# KOWA TRADING website
+# KUMOHIRO website
 
 A static React and Three.js website built with Vite.
 
