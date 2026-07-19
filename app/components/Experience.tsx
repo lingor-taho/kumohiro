@@ -9,11 +9,11 @@ function HomePanel() {
     <section className="scene scene-home">
       <div className="scene-media media-home" aria-hidden="true"><PlanetScene /></div>
       <header className="topline">
-        <span>North & East / Trading studio</span>
-        <span>Tokyo / Singapore</span>
+        <span>KUMO &amp; HIRO</span>
+        <span>OSAKA / SHANGHAI</span>
       </header>
       <div className="editorial">
-        <p className="kicker">Welcome to North & East</p>
+        <p className="kicker">Welcome to KUMO &amp; HIRO</p>
         <h1>
           A trading studio for
           <br />
@@ -42,7 +42,7 @@ function AboutPanel() {
         <i />
       </div>
       <header className="topline">
-        <span>North & East</span>
+        <span>KUMO &amp; HIRO</span>
         <span>About / 01</span>
       </header>
       <div className="editorial">
@@ -81,7 +81,7 @@ function ProjectsPanel() {
         <i />
       </div>
       <header className="topline">
-        <span>North & East</span>
+        <span>KUMO &amp; HIRO</span>
         <span>Projects / 02</span>
       </header>
       <div className="editorial">
@@ -121,7 +121,7 @@ function ContactPanel() {
         <i />
       </div>
       <header className="topline">
-        <span>North & East</span>
+        <span>KUMO &amp; HIRO</span>
         <span>Contact / 03</span>
       </header>
       <div className="editorial">
