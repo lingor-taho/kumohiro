@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import PlanetScene from "./PlanetScene";
 
@@ -178,17 +176,19 @@ export function Experience({ initialIndex = 0 }: { initialIndex?: number }) {
   }, []);
 
   function changeScene(target: number, updateHistory = true) {
-    if (target === active) {
+    const current = activeRef.current;
+    if (target === current) {
       setOpen(false);
       return;
     }
-    const nextDirection = target > active ? "forward" : "backward";
+    const nextDirection = target > current ? "forward" : "backward";
     setOpen(false);
     timers.current.push(
       window.setTimeout(() => {
         setDirection(nextDirection);
-        setPrevious(active);
+        setPrevious(current);
         setActive(target);
+        activeRef.current = target;
         if (updateHistory) window.history.pushState({}, "", routes[target]);
         timers.current.push(window.setTimeout(() => setPrevious(null), 920));
       }, 260),
