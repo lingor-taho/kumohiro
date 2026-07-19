@@ -135,7 +135,7 @@ function ContactPanel() {
           <p>
             Have a product, a market or an idea? We would love to hear about it.
           </p>
-          <a className="letter-link" href="mailto:hello@north-east.jp">
+          <a className="letter-link" href="mailto:yungoy@gmail.com">
             Contact us
           </a>
         </div>
