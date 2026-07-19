@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./experience.css";
+import "./parallax.css";
 
 export const metadata: Metadata = {
   title: "KŌWA TRADING | 光和貿易株式会社",
