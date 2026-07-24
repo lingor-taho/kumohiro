@@ -18,6 +18,15 @@
   line-height: 0.95;
 }
 
+.section-index,
+.detail-label,
+.copy-card > span,
+.service-card header > span {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
 .home-content {
   display: flex;
   flex-direction: column;
@@ -47,13 +56,31 @@
   line-height: 1.7;
 }
 
-.section-index,
-.detail-label,
-.copy-card > span,
-.service-card header > span {
-  font-size: 9px;
+.text-action,
+.interactive-card {
+  color: inherit;
+  font: inherit;
+}
+
+.text-action {
+  align-self: start;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  padding: 0 0 7px;
+  background: transparent;
+  font-size: 10px;
   letter-spacing: 0.18em;
-  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.text-action span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.text-action:hover span {
+  transform: translate(3px, -3px);
 }
 
 .about-content {
@@ -71,31 +98,73 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
-  align-items: stretch;
 }
 
-.copy-card,
-.service-card,
-.contact-details section {
+.interactive-card {
+  position: relative;
   border: 1px solid rgba(255, 255, 255, 0.28);
-  background: rgba(11, 15, 14, 0.28);
+  background: rgba(11, 15, 14, 0.3);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.75, 0.25, 1),
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+.interactive-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.interactive-card:hover,
+.interactive-card:focus-visible {
+  transform: translateY(-7px);
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(11, 15, 14, 0.48);
+  outline: none;
+}
+
+.interactive-card:hover::after,
+.interactive-card:focus-visible::after {
+  opacity: 1;
 }
 
 .copy-card {
-  min-height: 340px;
-  padding: 16px 16px 18px;
+  min-height: 300px;
+  padding: 16px 17px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+.copy-card h2 {
+  margin: 0 0 12px;
+  font-size: clamp(22px, 1.85vw, 30px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
 .copy-card p {
-  margin: 24px 0 0;
-  font-size: clamp(10px, 0.76vw, 12px);
-  line-height: 1.72;
-  text-align: justify;
+  margin: 0;
+  font-size: clamp(11px, 0.84vw, 13px);
+  line-height: 1.65;
+}
+
+.copy-card b,
+.service-card b {
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  opacity: 0.78;
 }
 
 .services-content {
@@ -123,8 +192,9 @@
 }
 
 .service-card {
-  padding: 13px 15px 12px;
-  overflow: hidden;
+  padding: 15px 17px;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card header {
@@ -132,23 +202,27 @@
   grid-template-columns: 28px 1fr;
   align-items: baseline;
   gap: 8px;
-  padding-bottom: 9px;
-  margin-bottom: 9px;
+  padding-bottom: 10px;
+  margin-bottom: 14px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .service-card h2 {
   margin: 0;
-  font-size: clamp(14px, 1.2vw, 19px);
+  font-size: clamp(17px, 1.35vw, 22px);
   font-weight: 500;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
-.service-card p {
-  margin: 0 0 6px;
-  font-size: clamp(9px, 0.69vw, 11px);
-  line-height: 1.52;
-  text-align: justify;
+.service-card > p {
+  margin: 0;
+  max-width: 470px;
+  font-size: clamp(11px, 0.86vw, 13px);
+  line-height: 1.65;
+}
+
+.service-card b {
+  margin-top: auto;
 }
 
 .contact-content {
@@ -179,6 +253,18 @@
 .contact-details section {
   min-height: 145px;
   padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(11, 15, 14, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.75, 0.25, 1),
+    background 0.35s ease;
+}
+
+.contact-details section:hover {
+  transform: translateY(-5px);
+  background: rgba(11, 15, 14, 0.46);
 }
 
 .contact-details p,
@@ -194,6 +280,114 @@
   margin-top: 18px;
 }
 
+.detail-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.46);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  animation: detail-fade 0.35s ease both;
+}
+
+.experience:has(.detail-overlay) > .floating-menu {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.detail-panel {
+  width: min(720px, 58vw);
+  height: 100%;
+  padding: 28px clamp(28px, 4vw, 64px) 42px;
+  color: #f7f7f4;
+  background:
+    linear-gradient(145deg, rgba(35, 39, 38, 0.98), rgba(8, 12, 13, 0.98));
+  box-shadow: -30px 0 90px rgba(0, 0, 0, 0.32);
+  overflow-y: auto;
+  animation: detail-enter 0.65s cubic-bezier(0.76, 0, 0.24, 1) both;
+}
+
+.detail-panel > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+}
+
+.detail-panel > header button {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.detail-panel > header button:hover {
+  background: #fff;
+  transform: rotate(90deg);
+}
+
+.detail-panel > header button i::before,
+.detail-panel > header button i::after {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 18px;
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+
+.detail-panel > header button i::after {
+  transform: rotate(-45deg);
+}
+
+.detail-panel > header button:hover i::before,
+.detail-panel > header button:hover i::after {
+  background: #111;
+}
+
+.detail-copy {
+  padding-top: clamp(42px, 8vh, 84px);
+}
+
+.detail-copy h2 {
+  max-width: 610px;
+  margin: 0 0 clamp(34px, 7vh, 70px);
+  font-size: clamp(42px, 5.5vw, 78px);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.detail-copy p {
+  max-width: 620px;
+  margin: 0 0 22px;
+  font-size: clamp(14px, 1.15vw, 17px);
+  line-height: 1.9;
+  text-align: justify;
+}
+
+@keyframes detail-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes detail-enter {
+  from { transform: translate3d(100%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
 @media (max-width: 980px) {
   .page-content {
     inset: 66px 20px 92px;
@@ -204,11 +398,8 @@
   }
 
   .home-intro {
-    grid-template-columns: 110px 1fr;
-  }
-
-  .home-intro .letter-link {
-    display: none;
+    grid-template-columns: 100px 1fr auto;
+    gap: 18px;
   }
 
   .about-content,
@@ -226,25 +417,12 @@
   }
 
   .copy-card {
-    min-height: 330px;
+    min-height: 290px;
     padding: 12px;
-  }
-
-  .copy-card p {
-    font-size: 9px;
-    line-height: 1.55;
   }
 
   .services-content {
     grid-template-columns: 220px 1fr;
-  }
-
-  .service-card {
-    padding: 10px 11px;
-  }
-
-  .service-card p {
-    font-size: 8.5px;
   }
 }
 
@@ -254,12 +432,15 @@
   }
 
   .home-content .page-heading h1 {
-    font-size: min(11.5vw, 54px);
+    font-size: min(10.5vw, 48px);
+    line-height: 1;
   }
 
   .home-intro {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
+    margin-top: 18px;
+    padding-top: 12px;
   }
 
   .home-intro .section-index {
@@ -267,104 +448,186 @@
   }
 
   .home-intro p {
-    font-size: 9px;
-    line-height: 1.55;
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 1.65;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
   }
 
-  .about-content {
-    grid-template-columns: 0.52fr 1.48fr;
+  .text-action {
+    font-size: 11px;
+    padding-bottom: 5px;
+  }
+
+  .about-content,
+  .services-content,
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    align-content: end;
   }
 
   .compact-heading h1 {
-    font-size: min(8.6vw, 40px);
+    font-size: min(9.8vw, 42px);
+    line-height: 1;
   }
 
   .about-grid {
-    gap: 4px;
+    grid-template-columns: 1fr;
+    gap: 7px;
   }
 
   .copy-card {
     min-height: 0;
-    padding: 8px;
+    padding: 11px 12px;
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .copy-card h2 {
+    margin: 0 0 3px;
+    font-size: 16px;
   }
 
   .copy-card p {
-    margin-top: 8px;
-    font-size: 6.6px;
-    line-height: 1.38;
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 1.45;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 
-  .services-content {
-    grid-template-columns: 120px 1fr;
-    gap: 8px;
+  .copy-card b {
+    font-size: 0;
+  }
+
+  .copy-card b::after {
+    content: "↗";
+    font-size: 15px;
   }
 
   .services-intro h1 {
-    margin-bottom: 10px;
-    font-size: min(7.5vw, 30px);
+    margin-bottom: 8px;
+    font-size: min(8.6vw, 36px);
   }
 
   .services-intro > p:last-child {
-    font-size: 7px;
-    line-height: 1.4;
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 11px;
+    line-height: 1.5;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
   }
 
   .services-grid {
-    gap: 4px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    gap: 6px;
   }
 
   .service-card {
-    padding: 6px;
+    min-height: 0;
+    padding: 9px 11px;
+    display: grid;
+    grid-template-columns: 24px 1fr 20px;
+    grid-template-rows: auto;
+    gap: 8px;
+    align-items: center;
   }
 
   .service-card header {
-    grid-template-columns: 16px 1fr;
-    gap: 3px;
-    margin-bottom: 4px;
-    padding-bottom: 4px;
+    display: contents;
+  }
+
+  .service-card header > span {
+    grid-column: 1;
   }
 
   .service-card h2 {
-    font-size: 8px;
+    grid-column: 2;
+    font-size: 14px;
   }
 
-  .service-card p {
-    margin-bottom: 3px;
-    font-size: 5.6px;
-    line-height: 1.32;
+  .service-card > p {
+    display: none;
+  }
+
+  .service-card b {
+    grid-column: 3;
+    margin: 0;
+    font-size: 0;
+  }
+
+  .service-card b::after {
+    content: "↗";
+    font-size: 15px;
   }
 
   .contact-content {
-    grid-template-columns: 0.72fr 1.28fr;
-    gap: 10px;
+    grid-template-rows: auto 1fr;
   }
 
   .contact-title h1 {
-    font-size: min(9.5vw, 44px);
+    font-size: min(10vw, 44px);
   }
 
   .contact-title > span {
-    font-size: 7px;
+    margin-top: 6px;
+    font-size: 8px;
   }
 
   .contact-details {
-    gap: 4px;
+    gap: 5px;
   }
 
   .contact-details section {
     min-height: 0;
-    padding: 8px;
+    padding: 10px;
   }
 
   .contact-details p,
   .contact-details a:not(.letter-link) {
-    margin-top: 4px;
-    font-size: 6.5px;
-    line-height: 1.35;
+    margin-top: 5px;
+    font-size: 10px;
+    line-height: 1.42;
   }
 
   .contact-note .letter-link {
     margin-top: 8px;
-    font-size: 6px;
+    font-size: 8px;
+  }
+
+  .detail-overlay {
+    position: fixed;
+  }
+
+  .detail-panel {
+    width: 100%;
+    padding: 18px 18px 34px;
+  }
+
+  .detail-copy {
+    padding-top: 34px;
+  }
+
+  .detail-copy h2 {
+    margin-bottom: 28px;
+    font-size: clamp(38px, 12vw, 54px);
+  }
+
+  .detail-copy p {
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+  .interactive-card:hover {
+    transform: none;
   }
 }
