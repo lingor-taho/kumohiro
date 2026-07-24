@@ -305,10 +305,6 @@ function ContactPanel() {
             <a href="mailto:yungoy@gmail.com">yungoy@gmail.com</a>
             <p>周一至周五 09:00–18:00</p>
           </section>
-          <section className="contact-services">
-            <span className="detail-label">业务范围</span>
-            <p>中日进出口贸易 / 跨境电商运营 / 国际物流代办 / 商贸资源对接</p>
-          </section>
           <section className="contact-note">
             <span className="detail-label">合作洽谈</span>
             <p>如需咨询业务详情、索取企业资料与报价方案，可通过邮箱留言。</p>
