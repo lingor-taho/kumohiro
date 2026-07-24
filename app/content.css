@@ -186,8 +186,8 @@
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr);
   gap: 8px;
 }
 
@@ -198,20 +198,19 @@
 }
 
 .service-card header {
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  align-items: baseline;
-  gap: 8px;
-  padding-bottom: 10px;
-  margin-bottom: 14px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(54px, 9vh, 88px);
+  padding: 0;
+  margin: 0 0 14px;
 }
 
 .service-card h2 {
   margin: 0;
-  font-size: clamp(17px, 1.35vw, 22px);
+  font-size: clamp(12px, 1.15vw, 19px);
   font-weight: 500;
   letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
 .service-card > p {
