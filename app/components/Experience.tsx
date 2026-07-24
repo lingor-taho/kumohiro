@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import PlanetScene from "./PlanetScene";
 
 const routes = ["/", "/about", "/projects", "/contact"] as const;
-const labels = ["Home", "About", "Projects", "Contact"];
+const labels = ["首页", "关于", "业务", "联系"];
 
 function HomePanel() {
   return (
@@ -13,20 +13,20 @@ function HomePanel() {
         <span>OSAKA / SHANGHAI</span>
       </header>
       <div className="editorial">
-        <p className="kicker">Welcome to KUMOHIRO</p>
+        <p className="kicker">连接日本与中国的商品与市场</p>
         <h1>
-          A trading studio for
+          扎根大阪，
           <br />
-          objects, ingredients
+          连接中日商品
           <br />
-          and new possibilities.
+          与消费市场。
         </h1>
         <div className="editorial-foot">
           <p>
-            We connect thoughtful makers with markets across borders and
-            disciplines.
+            KUMOHIRO 专注中日间商品贸易，覆盖线上电子商务与线下商品进出口，
+            为品牌、渠道和消费者建立高效可靠的跨境连接。
           </p>
-          <span className="letter-link">Discover our world</span>
+          <span className="letter-link">了解我们的业务</span>
         </div>
       </div>
     </section>
@@ -43,23 +43,23 @@ function AboutPanel() {
       </div>
       <header className="topline">
         <span>KUMOHIRO</span>
-        <span>About / 01</span>
+        <span>关于 / 01</span>
       </header>
       <div className="editorial">
-        <p className="kicker">Independent / Cross-cultural</p>
+        <p className="kicker">关于 KUMOHIRO</p>
         <h1>
-          Shaping connections
+          以大阪为起点，
           <br />
-          through insight,
+          打造可信赖的
           <br />
-          trust and movement.
+          中日贸易伙伴关系。
         </h1>
         <div className="editorial-foot">
           <p>
-            A Japan-based studio creating lasting relationships between people,
-            products and places.
+            我们理解日本与中国在市场、渠道和消费习惯上的差异，
+            从选品、采购、沟通到交付，持续推动稳定而长期的商业合作。
           </p>
-          <span className="letter-link">View our services</span>
+          <span className="letter-link">了解公司</span>
         </div>
       </div>
     </section>
@@ -68,10 +68,10 @@ function AboutPanel() {
 
 function ProjectsPanel() {
   const projects = [
-    "Everyday objects",
-    "Food culture",
-    "Industrial futures",
-    "Market entry",
+    "跨境电子商务",
+    "商品进口",
+    "商品出口",
+    "渠道与市场合作",
   ];
   return (
     <section className="scene scene-projects">
@@ -82,23 +82,23 @@ function ProjectsPanel() {
       </div>
       <header className="topline">
         <span>KUMOHIRO</span>
-        <span>Projects / 02</span>
+        <span>业务 / 02</span>
       </header>
       <div className="editorial">
-        <p className="kicker">Selected directions</p>
+        <p className="kicker">核心业务</p>
         <h1>
-          Work across objects,
+          线上电子商务
           <br />
-          food, industry
+          与线下进出口，
           <br />
-          and new markets.
+          连接商品与市场。
         </h1>
         <div className="editorial-foot">
           <p>
-            Selected collaborations across sourcing, strategy and international
-            distribution.
+            面向日本与中国市场，为合作伙伴提供商品选品、采购、销售、
+            跨境物流及市场进入等贸易支持。
           </p>
-          <span className="letter-link">View selected work</span>
+          <span className="letter-link">查看业务方向</span>
         </div>
       </div>
       <div className="project-ghost">
@@ -122,21 +122,22 @@ function ContactPanel() {
       </div>
       <header className="topline">
         <span>KUMOHIRO</span>
-        <span>Contact / 03</span>
+        <span>联系 / 03</span>
       </header>
       <div className="editorial">
-        <p className="kicker">Tokyo / Available worldwide</p>
+        <p className="kicker">大阪 / 面向日本与中国</p>
         <h1>
-          Drink e-coffee
+          期待与您聊聊
           <br />
-          with us.
+          新的商品与合作机会。
         </h1>
         <div className="editorial-foot">
           <p>
-            Have a product, a market or an idea? We would love to hear about it.
+            无论您是品牌方、供应商、渠道商，或正在寻找中日贸易合作伙伴，
+            都欢迎与我们联系。
           </p>
           <a className="letter-link" href="mailto:yungoy@gmail.com">
-            Contact us
+            联系我们
           </a>
         </div>
       </div>
@@ -252,9 +253,9 @@ export function Experience({ initialIndex = 0 }: { initialIndex?: number }) {
           type="button"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
-          aria-label={open ? "Close navigation" : "Explore navigation"}
+          aria-label={open ? "关闭导航" : "打开导航"}
         >
-          <span className="explore-label">Explore</span>
+          <span className="explore-label">菜单</span>
           <span className="close-mark" />
         </button>
         <div className="menu-side menu-right">
