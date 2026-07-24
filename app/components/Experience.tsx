@@ -12,26 +12,37 @@ function HomePanel() {
         <span>KUMOHIRO</span>
         <span>OSAKA / SHANGHAI</span>
       </header>
-      <div className="editorial">
-        <p className="kicker">连接日本与中国的商品与市场</p>
-        <h1>
-          扎根大阪，
-          <br />
-          连接中日商品
-          <br />
-          与消费市场。
-        </h1>
-        <div className="editorial-foot">
+      <div className="page-content home-content">
+        <div className="page-heading">
+          <p className="kicker">中日跨境贸易 / 大阪</p>
+          <h1>
+            链接中日商贸
+            <br />
+            深耕大阪跨境
+            <br />
+            一站式进出口与电商服务
+          </h1>
+        </div>
+        <div className="home-intro">
+          <span className="section-index">KUMOHIRO / 00</span>
           <p>
-            KUMOHIRO 专注中日间商品贸易，覆盖线上电子商务与线下商品进出口，
-            为品牌、渠道和消费者建立高效可靠的跨境连接。
+            依托大阪本地区位资源与深耕中日市场的行业经验，我们打通货源采购、
+            报关清关、国际物流、线上电商销售、售后保障全链路服务，助力中国
+            优质商品出海日本、日本精工产品引进中国，持续为双边中小企业赋能，
+            打造靠谱、专业、可持续的中日跨境贸易合作平台。
           </p>
-          <span className="letter-link">了解我们的业务</span>
+          <span className="letter-link">专业进出口与电商一站式服务</span>
         </div>
       </div>
     </section>
   );
 }
+
+const aboutParagraphs = [
+  "本商事企业坐落于日本大阪市，是一家集中日进出口贸易、跨境电子商务、国际供应链服务、双边商贸合作于一体的综合性外贸企业。企业立足关西核心商贸腹地，辐射全日本及中国全域市场，专注深耕中日跨境贸易赛道，专注搭建高效互通的双边商贸渠道。",
+  "自运营以来，企业始终坚守「以信立商、以质立业、互利共生、长期共赢」的经营理念，摒弃传统贸易繁琐流程，结合现代化电商运营模式，融合传统外贸的稳定性与跨境电商的灵活性，打造适配新时代的中日贸易服务体系。",
+  "经过长期市场深耕，企业已建立成熟的中日货源渠道、标准化的进出口作业流程、完善的国际物流配套以及专业的双语运营服务团队，积累了海量中日上下游合作资源，服务覆盖生产工厂、贸易公司、跨境电商卖家、实体商户等各类客户群体，在中日跨境贸易领域树立了良好的行业口碑与品牌信誉。",
+];
 
 function AboutPanel() {
   return (
@@ -45,34 +56,62 @@ function AboutPanel() {
         <span>KUMOHIRO</span>
         <span>关于 / 01</span>
       </header>
-      <div className="editorial">
-        <p className="kicker">关于 KUMOHIRO</p>
-        <h1>
-          以大阪为起点，
-          <br />
-          打造可信赖的
-          <br />
-          中日贸易伙伴关系。
-        </h1>
-        <div className="editorial-foot">
-          <p>
-            我们理解日本与中国在市场、渠道和消费习惯上的差异，
-            从选品、采购、沟通到交付，持续推动稳定而长期的商业合作。
-          </p>
-          <span className="letter-link">了解公司</span>
+      <div className="page-content about-content">
+        <div className="page-heading compact-heading">
+          <p className="kicker">企业概况</p>
+          <h1>
+            立足大阪，
+            <br />
+            搭建高效互通的
+            <br />
+            中日商贸渠道。
+          </h1>
+        </div>
+        <div className="about-grid">
+          {aboutParagraphs.map((paragraph, index) => (
+            <article className="copy-card" key={paragraph}>
+              <span>0{index + 1}</span>
+              <p>{paragraph}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
+const services = [
+  {
+    title: "中日双向进出口贸易业务",
+    body: [
+      "作为核心主营业务，承接中国→日本、日本→中国双向大宗货物进出口业务，涵盖货物采购、验货质检、进出口备案、海关报关、关税申报、清关放行、国内配送全流程代办服务。",
+      "业务覆盖日用家居、轻工制品、文创礼品、包装制品、正规预包装食品、美妆日用品、工业辅助材料等常规合规品类。可为国内工厂提供日本市场出口渠道，为日本本土商家对接中国优质源头货源，支持批量订货、长期供货、定制化采购，全程合规操作，单证齐全、可溯源。",
+    ],
+  },
+  {
+    title: "中日跨境电子商务业务",
+    body: [
+      "依托自主线上电商平台及主流跨境渠道，开展中日双向跨境电商零售与批发业务。面向日本消费者销售中国高性价比优质国货；面向中国市场引进日本本土精工好物与特色商品。",
+      "同时为中日中小商家提供电商代运营、货源一件代发、货源对接、产品上架优化、订单履约、售后对接等配套服务，降低入局门槛，无需囤货、无需对接复杂物流报关，轻松开展跨境生意。",
+    ],
+  },
+  {
+    title: "国际物流与仓储配套服务",
+    body: [
+      "依托大阪关西物流枢纽优势，整合海运、空运、国际快递、专线物流等多元渠道，提供中日双向国际物流代办服务，涵盖整柜运输、拼箱散货、小件快递、电商专线等多种物流方案。",
+      "同时提供大阪本地仓储分拣、货物暂存、打包贴标、集货转运服务，实现货物集中管理与高效周转，有效降低物流仓储成本，保障货物时效稳定、全程可追踪。",
+    ],
+  },
+  {
+    title: "中日商贸对接与咨询服务",
+    body: [
+      "凭借多年中日市场深耕经验，为双边企业提供市场调研、行业政策解读、贸易合规咨询、上下游资源对接、合作方案定制等增值服务。",
+      "针对初次开展中日贸易的企业，提供全程流程指导，规避关税、报关、合规等常见贸易风险，量身定制进出口与跨境电商合作方案，助力企业快速开拓海外市场。",
+    ],
+  },
+];
+
 function ProjectsPanel() {
-  const projects = [
-    "跨境电子商务",
-    "商品进口",
-    "商品出口",
-    "渠道与市场合作",
-  ];
   return (
     <section className="scene scene-projects">
       <div className="scene-media media-projects" aria-hidden="true">
@@ -84,29 +123,27 @@ function ProjectsPanel() {
         <span>KUMOHIRO</span>
         <span>业务 / 02</span>
       </header>
-      <div className="editorial">
-        <p className="kicker">核心业务</p>
-        <h1>
-          线上电子商务
-          <br />
-          与线下进出口，
-          <br />
-          连接商品与市场。
-        </h1>
-        <div className="editorial-foot">
+      <div className="page-content services-content">
+        <div className="services-intro">
+          <p className="kicker">核心业务</p>
+          <h1>中日双向贸易<br />与跨境电子商务</h1>
           <p>
-            面向日本与中国市场，为合作伙伴提供商品选品、采购、销售、
-            跨境物流及市场进入等贸易支持。
+            本公司核心业务围绕中日双向进出口贸易与跨境电子商务两大核心展开，
+            覆盖 B2B 企业贸易、B2C 跨境零售、供应链配套、贸易增值服务四大板块，
+            全流程覆盖货源、报关、物流、销售、售后全链条。
           </p>
-          <span className="letter-link">查看业务方向</span>
         </div>
-      </div>
-      <div className="project-ghost">
-        {projects.map((project, index) => (
-          <span key={project}>
-            0{index + 1} / {project}
-          </span>
-        ))}
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <article className="service-card" key={service.title}>
+              <header>
+                <span>0{index + 1}</span>
+                <h2>{service.title}</h2>
+              </header>
+              {service.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -124,21 +161,33 @@ function ContactPanel() {
         <span>KUMOHIRO</span>
         <span>联系 / 03</span>
       </header>
-      <div className="editorial">
-        <p className="kicker">大阪 / 面向日本与中国</p>
-        <h1>
-          期待与您聊聊
-          <br />
-          新的商品与合作机会。
-        </h1>
-        <div className="editorial-foot">
-          <p>
-            无论您是品牌方、供应商、渠道商，或正在寻找中日贸易合作伙伴，
-            都欢迎与我们联系。
-          </p>
-          <a className="letter-link" href="mailto:yungoy@gmail.com">
-            联系我们
-          </a>
+      <div className="page-content contact-content">
+        <div className="contact-title">
+          <p className="kicker">联系 KUMOHIRO</p>
+          <h1>雲尋株式会社</h1>
+          <span>Kumohiro Co., Ltd.</span>
+        </div>
+        <div className="contact-details">
+          <section>
+            <span className="detail-label">本店所在地 / 大阪本店</span>
+            <p>〒533-0033</p>
+            <p>大阪市淀川区西宫原2-6-16<br />432室 新大阪コーポビアネーズ</p>
+          </section>
+          <section>
+            <span className="detail-label">联系方式</span>
+            <p>服务热线：—</p>
+            <a href="mailto:yungoy@gmail.com">yungoy@gmail.com</a>
+            <p>周一至周五 09:00–18:00</p>
+          </section>
+          <section className="contact-services">
+            <span className="detail-label">业务范围</span>
+            <p>中日进出口贸易 / 跨境电商运营 / 国际物流代办 / 商贸资源对接</p>
+          </section>
+          <section className="contact-note">
+            <span className="detail-label">合作洽谈</span>
+            <p>如需咨询业务详情、索取企业资料与报价方案，可通过邮箱留言。</p>
+            <a className="letter-link" href="mailto:yungoy@gmail.com">发送邮件</a>
+          </section>
         </div>
       </div>
     </section>
